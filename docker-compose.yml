@@ -12,3 +12,11 @@ services:
       - /mongodb/database:/data/db
     ports:
       - 27017:27017
+
+  app-library:
+    container_name: app-library
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - application-db
