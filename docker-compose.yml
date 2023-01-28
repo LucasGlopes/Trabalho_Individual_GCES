@@ -20,3 +20,11 @@ services:
       dockerfile: Dockerfile
     depends_on:
       - application-db
+
+  metabase:
+    ports:
+      - 3000:3000
+    image: metabase/metabase:latest
+    volumes:
+      - /data/:/metabase
+    restart: always
