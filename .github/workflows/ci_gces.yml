@@ -1,0 +1,17 @@
+name: CI GCES
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Executar containers
+        run: |
+          docker-compose up -d --build
+          docker-compose logs
